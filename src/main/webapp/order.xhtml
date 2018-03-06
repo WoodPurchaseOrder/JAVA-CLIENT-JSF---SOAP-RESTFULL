@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Paiement</title>
+    </h:head>
+    <h:body>
+        <h:form> 
+            <h:outputLabel value="BC ID :"/>
+            <h:inputText value="#{orderModel.id}"/> 
+            <h:outputLabel value="BC NAME : "/>
+            <h:inputText value="#{orderModel.name}"/>
+            <h:outputLabel value="BC COMPONENT ID :"/>
+            <h:inputText value="#{orderModel.componentId}"/> 
+            <h:outputLabel value="BC COMPONENT NAME : "/>
+            <h:inputText value="#{orderModel.componentName}"/>
+            <h:outputLabel value="BC COMPONENT QTE : "/>
+            <h:inputText value="#{orderModel.componentQty}"/>
+            <h:commandButton value="Check BC avec Soap" action="#{orderModel.doOrderWithSoap}"/>
+        </h:form>     </h:body> 
+</html>
+

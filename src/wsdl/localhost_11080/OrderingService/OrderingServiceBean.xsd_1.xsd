@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.2-b608 (trunk-7979; 2015-01-21T12:50:19+0000) JAXWS-RI/2.2.11-b150120.1832 JAXWS-API/2.2.12 JAXB-RI/2.2.12-b141219.1637 JAXB-API/2.2.13-b141020.1521 svn-revision#unknown. --><xs:schema xmlns:tns="http://facade.stockmgmt.order.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://facade.stockmgmt.order.com/">
+
+<xs:element name="component" type="tns:component"/>
+
+<xs:element name="order" type="tns:order"/>
+
+<xs:element name="orderObjectOperation" type="tns:orderObjectOperation"/>
+
+<xs:element name="orderObjectOperationResponse" type="tns:orderObjectOperationResponse"/>
+
+<xs:element name="orderOperation" type="tns:orderOperation"/>
+
+<xs:element name="orderOperationResponse" type="tns:orderOperationResponse"/>
+
+<xs:complexType name="orderOperation">
+<xs:sequence>
+<xs:element name="id" type="xs:long" minOccurs="0"/>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="components" type="tns:component" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="component">
+<xs:sequence>
+<xs:element name="id" type="xs:long" minOccurs="0"/>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="qty" type="xs:long" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="orderOperationResponse">
+<xs:sequence>
+<xs:element name="acceptedOrder" type="xs:boolean" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="orderObjectOperation">
+<xs:sequence>
+<xs:element name="order" type="tns:order" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="order">
+<xs:sequence>
+<xs:element name="id" type="xs:long" minOccurs="0"/>
+<xs:element name="status" type="tns:orderStatus" minOccurs="0"/>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="component_list" type="tns:component" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="orderObjectOperationResponse">
+<xs:sequence>
+<xs:element name="acceptedOrder" type="xs:boolean" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:simpleType name="orderStatus">
+<xs:restriction base="xs:string">
+<xs:enumeration value="VALIDATED"/>
+<xs:enumeration value="CANCELLED"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:schema>
